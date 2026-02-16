@@ -1,0 +1,115 @@
+# Cursor Rules: AI Baseball Cards Project
+
+## Project Intelligence
+
+### Project Type
+Full-stack TypeScript monorepo application with AI integration for a technical interview exercise.
+
+### Key Characteristics
+- **Timeline**: Target 1-2 hours for core functionality, extended time for polish
+- **Purpose**: Demonstrate technical skills and AI-assisted development
+- **Scope**: Baseball player statistics viewer with AI-generated descriptions
+
+### Tech Stack Preferences
+- **Language**: TypeScript everywhere (frontend, backend, AI agent)
+- **Monorepo**: pnpm workspaces
+- **Code Quality**: Biome for linting and formatting across all packages
+- **Frontend**: React, Tailwind, Shadcn UI, TanStack Query
+- **Backend**: Fastify, Zod, Prisma, PostgreSQL
+- **AI**: LangGraph for orchestration
+
+## Development Workflow
+
+### Approach
+1. **Mock-First**: Build with mock data before real integration
+2. **Iterative**: Implement in phases, test each stage
+3. **Documentation**: Keep Memory Bank updated
+4. **Step-by-step**: Don't rush, ensure each piece works before moving on
+
+### Critical Paths
+- Database is required from the start (for edits and AI descriptions)
+- AI agent is separate package but integrates with backend
+- Frontend uses TanStack Query for all server state
+
+### Code Organization
+```
+ai-baseball-cards/
+├── packages/
+│   ├── frontend/    # React app
+│   ├── backend/     # Fastify API
+│   └── ai-agent/    # LangGraph AI
+├── memory-bank/     # Project documentation
+└── pnpm-workspace.yaml
+```
+
+## Patterns & Preferences
+
+### TypeScript
+- Strict mode enabled
+- No `any` types
+- Zod for runtime validation
+- Shared types between packages
+
+### API Design
+- RESTful endpoints
+- Consistent error responses
+- Zod validation on all inputs
+- Proper HTTP status codes
+
+### Frontend
+- Component composition over inheritance
+- Custom hooks for reusable logic
+- TanStack Query for all API calls
+- Shadcn UI components, not custom CSS
+
+### Database
+- Prisma for all database access
+- Repository pattern via services
+- Migrations version controlled
+- Seed script for initial data
+
+### Docker
+- Development: Local scripts with hot-reload
+- Production: Multi-stage builds
+- PostgreSQL always in container
+- Docker Compose for orchestration
+
+## AI Integration Notes
+
+### Description Generation
+- Async processing (don't block UI)
+- Cache generated descriptions in DB
+- Retry logic for API failures
+- Clear prompt versioning
+
+### Development with AI
+- Document AI usage for interview presentation
+- Show how AI accelerated development
+- Explain AI-assisted decisions
+
+## Common Gotchas
+- Remember to run `pnpm install` after adding packages
+- Biome config must be in each package or root
+- TanStack Query needs query client provider
+- Shadcn components need to be added manually
+
+## Testing Philosophy
+- Unit tests for validation and utilities
+- Integration tests for API endpoints
+- Manual QA for demo features
+- Keep it simple given time constraints
+
+## Demo Considerations
+- All features must work reliably
+- Clean, readable code for walkthrough
+- Be ready to explain architectural decisions
+- Show AI usage examples
+
+## Lessons Learned
+(To be updated as the project progresses)
+
+---
+
+**Last Updated**: 2026-02-16
+**Status**: Initial setup
+
