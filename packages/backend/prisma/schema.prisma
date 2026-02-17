@@ -1,0 +1,33 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Player {
+  id          String   @id @default(cuid())
+  externalId  String   @unique
+  name        String
+  team        String
+  position    String?
+  hits        Int
+  homeRuns    Int      @map("home_runs")
+  average     Float
+  atBats      Int?     @map("at_bats")
+  runs        Int?
+  rbi         Int?
+  description String?  @db.Text
+  rawData     Json     @map("raw_data")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  @@index([hits])
+  @@index([homeRuns])
+  @@map("players")
+}
