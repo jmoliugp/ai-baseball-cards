@@ -35,6 +35,7 @@ export function PlayerEditPage() {
     <div className="min-h-screen">
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <button
+          type="button"
           onClick={() => navigate(`/player/${id}`)}
           className="text-accent-blue hover:text-blue-400 transition-colors mb-6 inline-flex items-center gap-2"
         >
@@ -46,8 +47,11 @@ export function PlayerEditPage() {
 
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
-              <label className="block text-sm font-medium text-slate-300 mb-2">Name</label>
+              <label htmlFor="name" className="block text-sm font-medium text-slate-300 mb-2">
+                Name
+              </label>
               <input
+                id="name"
                 type="text"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -57,8 +61,11 @@ export function PlayerEditPage() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-slate-300 mb-2">Team</label>
+              <label htmlFor="team" className="block text-sm font-medium text-slate-300 mb-2">
+                Team
+              </label>
               <input
+                id="team"
                 type="text"
                 value={formData.team}
                 onChange={(e) => setFormData({ ...formData, team: e.target.value })}
@@ -68,8 +75,11 @@ export function PlayerEditPage() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-slate-300 mb-2">Position</label>
+              <label htmlFor="position" className="block text-sm font-medium text-slate-300 mb-2">
+                Position
+              </label>
               <input
+                id="position"
                 type="text"
                 value={formData.position}
                 onChange={(e) => setFormData({ ...formData, position: e.target.value })}
@@ -79,8 +89,11 @@ export function PlayerEditPage() {
 
             <div className="grid grid-cols-3 gap-4">
               <div>
-                <label className="block text-sm font-medium text-slate-300 mb-2">Hits</label>
+                <label htmlFor="hits" className="block text-sm font-medium text-slate-300 mb-2">
+                  Hits
+                </label>
                 <input
+                  id="hits"
                   type="number"
                   value={formData.hits}
                   onChange={(e) => setFormData({ ...formData, hits: Number(e.target.value) })}
@@ -91,8 +104,11 @@ export function PlayerEditPage() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-slate-300 mb-2">Home Runs</label>
+                <label htmlFor="homeRuns" className="block text-sm font-medium text-slate-300 mb-2">
+                  Home Runs
+                </label>
                 <input
+                  id="homeRuns"
                   type="number"
                   value={formData.homeRuns}
                   onChange={(e) => setFormData({ ...formData, homeRuns: Number(e.target.value) })}
@@ -103,8 +119,11 @@ export function PlayerEditPage() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-slate-300 mb-2">Average</label>
+                <label htmlFor="average" className="block text-sm font-medium text-slate-300 mb-2">
+                  Average
+                </label>
                 <input
+                  id="average"
                   type="number"
                   value={formData.average}
                   onChange={(e) => setFormData({ ...formData, average: Number(e.target.value) })}

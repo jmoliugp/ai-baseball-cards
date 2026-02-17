@@ -21,14 +21,12 @@ export function PlayersListPage() {
     <div className="min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-8">
-        <div className="flex flex-row">
-          <h1 className="text-5xl font-bold mb-2 mr-3">
-            ⚾
-          </h1>
-          <h1 className="text-5xl font-bold mb-2 bg-gradient-to-r from-accent-blue via-accent-purple to-accent-green bg-clip-text text-transparent">
-            Baseball Cards
-          </h1>
-        </div>
+          <div className="flex flex-row">
+            <h1 className="text-5xl font-bold mb-2 mr-3">⚾</h1>
+            <h1 className="text-5xl font-bold mb-2 bg-gradient-to-r from-accent-blue via-accent-purple to-accent-green bg-clip-text text-transparent">
+              Baseball Cards
+            </h1>
+          </div>
           <p className="text-slate-400">AI-powered player statistics viewer</p>
         </div>
 

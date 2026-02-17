@@ -7,7 +7,7 @@ export function usePlayers(sortBy?: 'hits' | 'homeRuns', order: 'asc' | 'desc' =
     const sorted = [...mockPlayers]
 
     if (sortBy) {
-       sorted.sort((a, b) => {
+      sorted.sort((a, b) => {
         const aValue = sortBy === 'hits' ? a.hits : a.homeRuns
         const bValue = sortBy === 'hits' ? b.hits : b.homeRuns
         return order === 'asc' ? aValue - bValue : bValue - aValue

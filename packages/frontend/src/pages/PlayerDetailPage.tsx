@@ -20,6 +20,7 @@ export function PlayerDetailPage() {
         <div className="text-center">
           <h2 className="text-2xl font-bold text-white mb-2">Player not found</h2>
           <button
+            type="button"
             onClick={() => navigate('/')}
             className="text-accent-blue hover:text-blue-400 transition-colors"
           >
@@ -34,6 +35,7 @@ export function PlayerDetailPage() {
     <div className="min-h-screen">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <button
+          type="button"
           onClick={() => navigate('/')}
           className="text-accent-blue hover:text-blue-400 transition-colors mb-6 inline-flex items-center gap-2"
         >
@@ -89,13 +91,19 @@ export function PlayerDetailPage() {
             ) : (
               <div className="text-center py-8 bg-bg-tertiary/50 rounded-lg border border-slate-700">
                 <p className="text-slate-400 mb-4">No AI description generated yet</p>
-                <button className="btn-primary">Generate Description</button>
+                <button type="button" className="btn-primary">
+                  Generate Description
+                </button>
               </div>
             )}
           </div>
 
           <div className="mt-6 flex gap-3">
-            <button onClick={() => navigate(`/player/${player.id}/edit`)} className="btn-success">
+            <button
+              type="button"
+              onClick={() => navigate(`/player/${player.id}/edit`)}
+              className="btn-success"
+            >
               Edit Player
             </button>
           </div>

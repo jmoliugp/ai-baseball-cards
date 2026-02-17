@@ -7,7 +7,7 @@ interface PlayerCardProps {
 
 export function PlayerCard({ player, onClick }: PlayerCardProps) {
   return (
-    <div className="card card-hover p-6 cursor-pointer" onClick={onClick}>
+    <button type="button" className="card card-hover p-6 text-left w-full" onClick={onClick}>
       <div className="flex justify-between items-start mb-4">
         <div>
           <h3 className="text-xl font-bold text-white">{player.name}</h3>
@@ -37,6 +37,6 @@ export function PlayerCard({ player, onClick }: PlayerCardProps) {
           <p className="text-xs text-slate-500 uppercase font-semibold mt-1">AVG</p>
         </div>
       </div>
-    </div>
+    </button>
   )
 }
