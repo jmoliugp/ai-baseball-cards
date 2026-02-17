@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+  
+  body {
+    @apply bg-bg-primary text-slate-100;
+  }
+}
+
+@layer utilities {
+  .card {
+    @apply bg-bg-secondary border border-slate-700 rounded-lg shadow-lg;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-200 hover:border-slate-600 hover:shadow-xl hover:shadow-accent-blue/10;
+  }
+  
+  .stat-card {
+    @apply rounded-lg p-4 backdrop-blur-sm;
+  }
+  
+  .btn-primary {
+    @apply bg-accent-blue hover:bg-blue-600 text-white font-medium px-6 py-2 rounded-lg transition-colors;
+  }
+  
+  .btn-secondary {
+    @apply bg-bg-tertiary hover:bg-slate-600 text-slate-200 font-medium px-6 py-2 rounded-lg transition-colors border border-slate-600;
+  }
+  
+  .btn-success {
+    @apply bg-accent-green hover:bg-emerald-600 text-white font-medium px-6 py-2 rounded-lg transition-colors;
+  }
+}
