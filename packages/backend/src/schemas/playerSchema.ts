@@ -31,8 +31,10 @@ export const updatePlayerSchema = z.object({
 })
 
 export const queryParamsSchema = z.object({
-  sortBy: z.enum(['hits', 'homeRuns']).optional(),
+  sortBy: z.enum(['hits', 'homeRuns', 'average', 'atBats', 'runs', 'rbi']).optional(),
   order: z.enum(['asc', 'desc']).optional(),
+  page: z.coerce.number().int().positive().optional().default(1),
+  limit: z.coerce.number().int().positive().max(100).optional().default(20),
 })
 
 export type Player = z.infer<typeof playerSchema>
