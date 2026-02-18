@@ -1,6 +1,6 @@
 import 'dotenv/config'
 import axios from 'axios'
-import { prisma } from './db.js'
+import { db } from './db.js'
 
 const API_URL =
   'https://resource-hub-production.s3.us-west-2.amazonaws.com/uploads/62/baseball_data.json'
@@ -33,7 +33,7 @@ async function seed() {
         const runs = parseInt(player.Runs) || parseInt(player.R) || null
         const rbi = parseInt(player['run batted in']) || parseInt(player.RBI) || null
 
-        const result = await prisma.player.upsert({
+        const result = await db.player.upsert({
           where: { externalId },
           update: {
             name: playerName,
@@ -78,7 +78,8 @@ async function seed() {
         }
       } catch (error) {
         skipped++
-        console.error(`\nFailed to process player: ${player['Player name'] || player.name}`, error.message)
+        const errorMessage = error instanceof Error ? error.message : String(error)
+        console.error(`\nFailed to process player: ${player['Player name'] || player.name}`, errorMessage)
       }
     }
 
@@ -93,7 +94,7 @@ async function seed() {
     console.error('Seed failed:', error)
     throw error
   } finally {
-    await prisma.$disconnect()
+    await db.$disconnect()
   }
 }
 
