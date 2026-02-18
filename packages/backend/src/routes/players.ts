@@ -1,9 +1,7 @@
 import type { FastifyInstance } from 'fastify'
-import { PlayerService } from '../services/playerService.js'
+import * as playerService from '../services/playerService.js'
 import { updatePlayerSchema, queryParamsSchema } from '../schemas/playerSchema.js'
 import { playerSwaggerSchemas } from '../schemas/swaggerSchemas.js'
-
-const playerService = new PlayerService()
 
 export async function playerRoutes(fastify: FastifyInstance) {
   // List all players with optional sorting
@@ -35,6 +33,7 @@ export async function playerRoutes(fastify: FastifyInstance) {
             items: playerSwaggerSchemas.player,
           },
           400: playerSwaggerSchemas.error,
+          500: playerSwaggerSchemas.error,
         },
       },
     },
@@ -72,6 +71,7 @@ export async function playerRoutes(fastify: FastifyInstance) {
         response: {
           200: playerSwaggerSchemas.player,
           404: playerSwaggerSchemas.error,
+          500: playerSwaggerSchemas.error,
         },
       },
     },
@@ -114,6 +114,7 @@ export async function playerRoutes(fastify: FastifyInstance) {
           200: playerSwaggerSchemas.player,
           400: playerSwaggerSchemas.error,
           404: playerSwaggerSchemas.error,
+          500: playerSwaggerSchemas.error,
         },
       },
     },
@@ -161,6 +162,7 @@ export async function playerRoutes(fastify: FastifyInstance) {
         response: {
           200: playerSwaggerSchemas.descriptionResponse,
           404: playerSwaggerSchemas.error,
+          500: playerSwaggerSchemas.error,
         },
       },
     },
