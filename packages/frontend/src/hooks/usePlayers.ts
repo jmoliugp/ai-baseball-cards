@@ -1,25 +1,18 @@
-import { useState } from 'react'
-import { mockPlayers } from '@/lib/mockData'
+import { useQuery } from '@tanstack/react-query'
+import { api } from '@/lib/api'
 import type { Player } from '@/types/player'
 
 export function usePlayers(sortBy?: 'hits' | 'homeRuns', order: 'asc' | 'desc' = 'desc') {
-  const [players] = useState<Player[]>(() => {
-    const sorted = [...mockPlayers]
+  return useQuery({
+    queryKey: ['players', sortBy, order],
+    queryFn: async () => {
+      const params = new URLSearchParams()
+      if (sortBy) params.append('sortBy', sortBy)
+      if (order) params.append('order', order)
 
-    if (sortBy) {
-      sorted.sort((a, b) => {
-        const aValue = sortBy === 'hits' ? a.hits : a.homeRuns
-        const bValue = sortBy === 'hits' ? b.hits : b.homeRuns
-        return order === 'asc' ? aValue - bValue : bValue - aValue
-      })
-    }
-
-    return sorted
+      const { data } = await api.get<Player[]>(`/api/players?${params.toString()}`)
+      return data
+    },
+    staleTime: 5 * 60 * 1000, // 5 minutes
   })
-
-  return {
-    data: players,
-    isLoading: false,
-    error: null,
-  }
 }
