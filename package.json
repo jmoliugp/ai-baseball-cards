@@ -5,11 +5,16 @@
   "private": true,
   "scripts": {
     "dev": "docker-compose up",
+    "dev:build": "docker-compose up --build",
     "dev:local": "pnpm --filter backend dev & pnpm --filter frontend dev",
     "build": "pnpm -r build",
     "lint": "pnpm -r lint",
     "format": "pnpm -r format",
-    "clean": "pnpm -r clean && rm -rf node_modules"
+    "clean": "pnpm -r clean && rm -rf node_modules",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f",
+    "docker:rebuild": "docker-compose down && docker-compose up --build -d"
   },
   "keywords": [
     "baseball",
